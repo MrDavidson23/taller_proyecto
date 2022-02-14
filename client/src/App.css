@@ -6,7 +6,7 @@
   margin-right: auto;
 }
 
-input {
+textarea {
   height: 40px;
   width: 50%;
   border: none;
@@ -16,7 +16,7 @@ input {
   color: #787a80;
 }
 
-input:focus {
+textarea:focus {
   outline: none;
 }
 
@@ -60,7 +60,7 @@ li {
   }
 
   input {
-    width: 100%
+    width: 100%;
   }
 
   button {
