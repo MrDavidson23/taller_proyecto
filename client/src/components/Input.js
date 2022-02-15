@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Input = ({ getTodos }) => {
+const Input = ({ getTodos, todoInfo, editTodo }) => {
   const [action, setAction] = useState("");
+
+  useEffect(() => {
+    if (todoInfo.action) {
+      setAction(todoInfo.action);
+    } else {
+      setAction("");
+    }
+  }, [todoInfo]);
 
   const addTodo = () => {
     const task = { action };
@@ -28,10 +36,18 @@ const Input = ({ getTodos }) => {
 
   return (
     <div>
-      <textarea type="text" onChange={handleChange} value={action} rows={5}>
-        {" "}
-      </textarea>
-      <button onClick={addTodo}>add todo</button>
+      <textarea
+        type="text"
+        onChange={handleChange}
+        value={action}
+        rows={50}
+        cols={50}
+      ></textarea>
+      {todoInfo.id ? (
+        <button onClick={() => editTodo(action)}>Edit</button>
+      ) : (
+        <button onClick={addTodo}>Add</button>
+      )}
     </div>
   );
 };

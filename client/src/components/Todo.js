@@ -5,6 +5,7 @@ import ListTodo from "./ListTodo";
 
 const Todo = () => {
   const [todos, setTodos] = useState([]);
+  const [todoInfo, setTodoInfo] = useState({});
 
   useEffect(() => {
     getTodos();
@@ -16,6 +17,18 @@ const Todo = () => {
       .then((res) => {
         if (res.data) {
           setTodos(res.data);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const editTodo = async (action) => {
+    await axios
+      .put(`/api/todos/${todoInfo.id}`, { action })
+      .then((res) => {
+        if (res.data) {
+          getTodos();
+          setTodoInfo({});
         }
       })
       .catch((err) => console.log(err));
@@ -36,8 +49,12 @@ const Todo = () => {
   return (
     <div>
       <h1>My Todo(s)</h1>
-      <Input getTodos={getTodos} />
-      <ListTodo todos={todos} deleteTodo={deleteTodo} />
+      <Input getTodos={getTodos} todoInfo={todoInfo} editTodo={editTodo} />
+      <ListTodo
+        todos={todos}
+        deleteTodo={deleteTodo}
+        setTodoInfo={setTodoInfo}
+      />
     </div>
   );
 };
