@@ -7,10 +7,11 @@ const TodoSchema = new Schema({
         type: String,
         required: [true, 'The todo text field is required'],
     },
-    // usuario: {
-    //     type: String,
-    //     required: [true, 'The usuario text field is required'],
-    // },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users',
+        required: [true, 'The user text field is required'],
+    },
 });
 
 // Create model for todo

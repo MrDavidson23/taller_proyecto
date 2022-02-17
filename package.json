@@ -24,9 +24,18 @@
   },
   "homepage": "https://github.com/MrDavidson23/taller_proyecto#readme",
   "dependencies": {
+    "axios": "^0.26.0",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
-    "mongoose": "^6.2.1"
+    "jsonwebtoken": "^8.5.1",
+    "marked-react": "^1.0.3",
+    "mongoose": "^6.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^5.0.0",
+    "server": "^1.0.37",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
