@@ -64,6 +64,7 @@ router.delete("/todos/:id", auth, async (req, res, next) => {
 
 
 //USERS ********************************************
+//SIGN UP
 router.post('/users',async (req, res, next) => {
   if (!req.body.name) {
     res.json({
@@ -119,6 +120,17 @@ router.post('/users',async (req, res, next) => {
 
 });
 
+router.get('/logout', auth, async (req, res, next) => {
+  res.cookie('token', 'none', {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+  res.status(200).json({
+    success: true,
+    data: {},
+  });
+});
+
 //AUTH ********************************************
 router.get('/auth', auth, async (req, res) => {
   try {
@@ -129,6 +141,8 @@ router.get('/auth', auth, async (req, res) => {
   }
 });
 
+
+//LOGIN
 router.post('/auth', async (req, res) => {
   if (!req.body.email) {
     res.json({
