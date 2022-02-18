@@ -63,7 +63,7 @@ const Register = () => {
         <form className='form-row' onSubmit={onSubmit}>
           <div className='form-group col-md-6'>
             <div className='col'>
-              <label htmlFor='name'>Nombre</label>
+              <label htmlFor='name'>Name</label>
               <input
                 type='text'
                 name='name'
@@ -88,7 +88,7 @@ const Register = () => {
           </div>
           <div className='form-group col-md-6'>
             <div className='col'>
-              <label htmlFor='name'>Contraseña</label>
+              <label htmlFor='name'>Password</label>
               <input
                 type='password'
                 name='password'
@@ -98,13 +98,13 @@ const Register = () => {
                 minLength='6'
               />
               <small className='form-text text-muted'>
-                Su contraseña debe de tener más de 6 caracteres
+                Your password must have more than 6 characters
               </small>
             </div>
           </div>
           <div className='form-group col-md-6'>
             <div className='col'>
-              <label htmlFor='name'>Reingresar Contraseña</label>
+              <label htmlFor='name'>Reenter password</label>
               <input
                 type='password'
                 name='password2'
@@ -118,7 +118,7 @@ const Register = () => {
           <div class='container'>
             <div class='centerRegister'>
               <button className='defaultButton' type='submit'>
-                Registrarse
+                Register
               </button>
             </div>
           </div>
