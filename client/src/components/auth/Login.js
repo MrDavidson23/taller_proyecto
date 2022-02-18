@@ -105,12 +105,12 @@ const Login = () => {
               onClick={onSubmit}
             >
               {' '}
-              Iniciar Sesión
+                Log In
             </button>
 
 
             <Link to='/register' className='defaultButton2 mb-3' type='submit'>
-              Registrarse
+              Register
             </Link>
           </div>
         </form>
