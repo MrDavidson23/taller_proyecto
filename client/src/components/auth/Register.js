@@ -41,17 +41,22 @@ const Register = () => {
     } else if (password !== password2) {
       setAlert('Las contraseñas no coinciden', 'danger');
     } else {
-      register({
-        name,
-        email,
-        password
-      });
-      Swal.fire({
-        icon: 'success',
-        title: 'Se ha registrado.',
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      try{
+        register({
+          name,
+          email,
+          password
+        });
+        Swal.fire({
+          icon: 'success',
+          title: 'Se ha registrado.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } catch(err){
+        setAlert('Email already exists', 'danger');
+      }
+      
     }
   };
   return (
@@ -116,6 +121,13 @@ const Register = () => {
             <div class='centerRegister'>
               <button className='defaultButton' type='submit'>
                 Register
+              </button>
+              <button
+                onClick={() => {
+                  window.open('/', '_self');
+                }}
+              >
+                Back
               </button>
             </div>
           </div>

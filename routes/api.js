@@ -78,19 +78,6 @@ router.delete("/todos/:id", auth, async (req, res, next) => {
 //USERS ********************************************
 //SIGN UP
 router.post('/users', async (req, res, next) => {
-  if (!req.body.name) {
-    res.json({
-      error: "The password field is empty",
-    });
-  } else if (!req.body.email) {
-    res.json({
-      error: "The email field is empty",
-    });
-  } else if (!req.body.password) {
-    res.json({
-      error: "The password field is empty",
-    });
-  } else {
     try {
       const {
         name,
@@ -101,9 +88,7 @@ router.post('/users', async (req, res, next) => {
         email
       });
       if (user) {
-        return res.status(400).json({
-          msg: 'Email already exists'
-        });
+        throw Error ('Email already exists')
       }
 
       user = new User({
@@ -138,20 +123,8 @@ router.post('/users', async (req, res, next) => {
         error: "Server Error",
       });
     }
-  }
 
 
-});
-
-router.get('/logout', auth, async (req, res, next) => {
-  res.cookie('token', 'none', {
-    expires: new Date(Date.now() + 10 * 1000),
-    httpOnly: true,
-  });
-  res.status(200).json({
-    success: true,
-    data: {},
-  });
 });
 
 //AUTH ********************************************
@@ -167,15 +140,6 @@ router.get('/auth', auth, async (req, res) => {
 
 //LOGIN
 router.post('/auth', async (req, res) => {
-  if (!req.body.email) {
-    res.json({
-      error: "Email is required",
-    });
-  } else if (!req.body.password) {
-    res.json({
-      error: "Password is required",
-    });
-  } else {
     try {
       const {
         email,
@@ -220,7 +184,7 @@ router.post('/auth', async (req, res) => {
         error: "Server Error",
       });
     }
-  }
+  
 });
 
 module.exports = router;

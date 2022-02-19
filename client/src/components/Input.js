@@ -49,6 +49,14 @@ const Input = ({ getTodos, todoInfo, editTodo }) => {
       ) : (
         <button onClick={addTodo}>Add</button>
       )}
+       <button
+        onClick={() => {
+          localStorage.removeItem("token");
+          window.open('/', '_self');
+        }}
+      >
+        Logout
+      </button>
     </div>
   );
 };
