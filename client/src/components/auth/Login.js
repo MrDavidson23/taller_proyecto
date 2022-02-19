@@ -32,7 +32,7 @@ const Login = () => {
           timer: 1500,
         }).then(async () => {
             try{
-                <Navigate to='/todo'/>;
+                window.open('/todo', '_self');
             } catch(err){
                 Swal.fire({
                     icon: 'error',

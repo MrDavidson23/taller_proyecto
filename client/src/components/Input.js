@@ -14,10 +14,11 @@ const Input = ({ getTodos, todoInfo, editTodo }) => {
 
   const addTodo = () => {
     const task = { action };
-
+    
     if (task.action && task.action.length > 0) {
+      const token = localStorage.getItem("token");
       axios
-        .post("/api/todos", task)
+        .post("/api/todos", task, {headers: {'x-auth-token': token}})
         .then((res) => {
           if (res.data) {
             getTodos();

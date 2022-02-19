@@ -11,9 +11,11 @@ const Todo = () => {
     getTodos();
   }, []);
 
+  
   const getTodos = async () => {
+    const token = localStorage.getItem("token");
     await axios
-      .get("/api/todos")
+      .get("/api/todos", {headers: {'x-auth-token': token}})
       .then((res) => {
         if (res.data) {
           setTodos(res.data);
@@ -23,8 +25,9 @@ const Todo = () => {
   };
 
   const editTodo = async (action) => {
+    const token = localStorage.getItem("token");
     await axios
-      .put(`/api/todos/${todoInfo.id}`, { action })
+      .put(`/api/todos/${todoInfo.id}`, { action }, {headers: {'x-auth-token': token}})
       .then((res) => {
         if (res.data) {
           getTodos();
@@ -35,8 +38,9 @@ const Todo = () => {
   };
 
   const deleteTodo = async (id) => {
+    const token = localStorage.getItem("token");
     axios
-      .delete(`/api/todos/${id}`)
+      .delete(`/api/todos/${id}`, {headers: {'x-auth-token': token}})
       .then((res) => {
         if (res.data) {
           getTodos();
