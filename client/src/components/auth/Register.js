@@ -5,9 +5,6 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 
 const Register = () => {
-  useEffect(async () => {
-    await axios.get('/api/logout');
-  }, []);
 
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);

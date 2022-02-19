@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import AuthState from '../../context/auth/AuthState';
 
 const Login = () => {
-  useEffect(async () => {
-    await axios.get('/api/logout');
-  }, []);
 
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
+  
+  
 
   const { email, password } = user;
 
@@ -33,6 +33,7 @@ const Login = () => {
         }).then(async () => {
             try{
                 window.open('/todo', '_self');
+                localStorage.setItem('token', res.data.token);
             } catch(err){
                 Swal.fire({
                     icon: 'error',
