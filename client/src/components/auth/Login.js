@@ -56,7 +56,7 @@ const Login = () => {
         <form onSubmit={onSubmit}>
           <div className="form-group" style={{ textAlign: "left" }}>
             <label className="blue-label" style={{ marginLeft: "40px" }}>
-              Email
+              EMAIL
             </label>
             <div class="input-group mb-3">
               <div class="input-group-prepend" style={{ marginRight: "10px" }}>
