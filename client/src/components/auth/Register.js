@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
 import Swal from 'sweetalert2';
-import axios from 'axios';
 
 const Register = () => {
 

@@ -1,9 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-import AuthState from "../../context/auth/AuthState";
 
 const Login = () => {
   const [user, setUser] = useState({
